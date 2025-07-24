@@ -2,7 +2,7 @@
 /**
  * Plugin Name: Virage AI Chat Widget
  * Description: Intégrez facilement le widget de chat Virage AI sur votre site WordPress avec des règles d'affichage avancées. Une fois activé, rendez-vous dans **Réglages > Virage AI Chat** pour configurer le widget
- * Version: 0.0.1
+ * Version: 0.0.2
  * Author: Virage AI
  * Author URI: https://virage.ai/
  * License: GPLv2 or later
@@ -60,15 +60,25 @@ function virage_ai_settings_init() {
         'organization_uuid' => ['label' => 'Organization UUID', 'type' => 'text', 'required' => true],
         'project_uuid' => ['label' => 'Project UUID', 'type' => 'text', 'required' => true],
         'whatsapp_redirect_url' => ['label' => 'WhatsApp Redirect URL', 'type' => 'url'],
-        'popup_content_url' => ['label' => 'Popup Content URL', 'type' => 'url', 'default' => 'https://chat-widget.virage.ai'],
+
+        'button_icon_url' => ['label' => 'Button Icon URL', 'type' => 'url', 'default' => 'https://storage.googleapis.com/virage-public/chat-widget/whatsapp.svg'],
         'button_text' => ['label' => 'Button Text', 'type' => 'text'],
-        'button_icon_url' => ['label' => 'Button Icon URL', 'type' => 'url'],
+        'button_text_color' => ['label' => 'Button Text Color', 'type' => 'color', 'default' => '#FFFFFF'],
         'button_bg_color' => ['label' => 'Button Background Color', 'type' => 'color', 'default' => '#4edd82'],
-        'popup_avatar_url' => ['label' => 'Popup Avatar URL', 'type' => 'url', 'default' => 'https://i.pravatar.cc/1500'],
-        'popup_avatar_name' => ['label' => 'Popup Avatar Name', 'type' => 'text', 'default' => 'FX'],
-        'popup_text' => ['label' => 'Popup Text', 'type' => 'text', 'default' => 'Scan this QR code to start<br/>the conversation on WhatsApp:'],
-        'popup_cta_text' => ['label' => 'Popup CTA Text', 'type' => 'text', 'default' => 'Continue on desktop'],
+        'button_size' => ['label' => 'Button Size', 'type' => 'text', 'default' => '64px'],
+
+        'popup_avatar_url' => ['label' => 'Popup Avatar URL', 'type' => 'url', 'default' => 'https://storage.googleapis.com/virage-public/chat-widget/squared_white.jpg'],
+        'popup_avatar_name' => ['label' => 'Popup Avatar Name', 'type' => 'text', 'default' => 'Virage AI'],
+        'popup_whats_app_text' => ['label' => 'Popup Text', 'type' => 'text', 'default' => 'Scan this QR code to start<br/>the conversation on WhatsApp:'],
+        'popup_whats_app_cta_text' => ['label' => 'Popup CTA Text', 'type' => 'text', 'default' => 'Continue on desktop'],
+
+        'popup_width' => ['label' => 'Popup Width', 'type' => 'text', 'default' => '350px'],
+        'popup_height' => ['label' => 'Popup Height', 'type' => 'text', 'default' => '490px'],
+        'popup_bottom_offset' => ['label' => 'Popup Height', 'type' => 'text', 'default' => '90px'],
+        'popup_right_offset' => ['label' => 'Popup Height', 'type' => 'text', 'default' => '20px'],
+
         'popup_tabs' => ['label' => 'Popup Tabs', 'type' => 'text', 'default' => '1,2'],
+        'popup_content_url' => ['label' => 'Popup Content URL', 'type' => 'url', 'default' => 'https://chat-widget.virage.ai'],
     ];
 
     foreach ($config_fields as $id => $field) {
