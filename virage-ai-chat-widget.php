@@ -66,16 +66,18 @@ function virage_ai_settings_init() {
         'button_text_color' => ['label' => 'Button Text Color', 'type' => 'color', 'default' => '#FFFFFF'],
         'button_bg_color' => ['label' => 'Button Background Color', 'type' => 'color', 'default' => '#4edd82'],
         'button_size' => ['label' => 'Button Size', 'type' => 'text', 'default' => '64px'],
+        'button_bottom_offset' => ['label' => 'Button Bottom Offset', 'type' => 'text', 'default' => '20px'],
+        'button_right_offset' => ['label' => 'Button Right Offset', 'type' => 'text', 'default' => '20px'],
 
         'popup_avatar_url' => ['label' => 'Popup Avatar URL', 'type' => 'url', 'default' => 'https://storage.googleapis.com/virage-public/chat-widget/squared_white.jpg'],
         'popup_avatar_name' => ['label' => 'Popup Avatar Name', 'type' => 'text', 'default' => 'Virage AI'],
-        'popup_whats_app_text' => ['label' => 'Popup Text', 'type' => 'text', 'default' => 'Scan this QR code to start<br/>the conversation on WhatsApp:'],
-        'popup_whats_app_cta_text' => ['label' => 'Popup CTA Text', 'type' => 'text', 'default' => 'Continue on desktop'],
+        'popup_whats_app_text' => ['label' => 'Popup WhatsApp Text', 'type' => 'text', 'default' => 'Scan this QR code to start<br/>the conversation on WhatsApp:'],
+        'popup_whats_app_cta_text' => ['label' => 'Popup WhatsApp CTA Text', 'type' => 'text', 'default' => 'Continue on desktop'],
 
         'popup_width' => ['label' => 'Popup Width', 'type' => 'text', 'default' => '350px'],
         'popup_height' => ['label' => 'Popup Height', 'type' => 'text', 'default' => '490px'],
-        'popup_bottom_offset' => ['label' => 'Popup Height', 'type' => 'text', 'default' => '90px'],
-        'popup_right_offset' => ['label' => 'Popup Height', 'type' => 'text', 'default' => '20px'],
+        'popup_bottom_offset' => ['label' => 'Popup Bottom Offset', 'type' => 'text', 'default' => '90px'],
+        'popup_right_offset' => ['label' => 'Popup Right Offset', 'type' => 'text', 'default' => '20px'],
 
         'popup_tabs' => ['label' => 'Popup Tabs', 'type' => 'text', 'default' => '1,2'],
         'popup_content_url' => ['label' => 'Popup Content URL', 'type' => 'url', 'default' => 'https://chat-widget.virage.ai'],
