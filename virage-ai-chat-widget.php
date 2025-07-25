@@ -296,7 +296,7 @@ function virage_ai_add_widget_script() {
     }
 
     printf(
-        '<script src="https://dev-chat-widget.virage.ai/cdn/chat-widget-sdk-v1.js" %s async defer></script>',
+        '<script src="http://localhost:3001/cdn/chat-widget-sdk-v0.1.2.js" %s async defer></script>',
         $data_attrs
     );
 }
