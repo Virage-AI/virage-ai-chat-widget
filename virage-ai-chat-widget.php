@@ -2,7 +2,7 @@
 /**
  * Plugin Name: Virage AI Chat Widget
  * Description: Easily integrate the Virage AI chat widget on your WordPress site with advanced display rules. Once activated, go to **Settings > Virage AI Chat** to configure the widget.
- * Version: 1.1.1
+ * Version: 1.1.2
  * Author: Virage AI
  * Author URI: https://virage.ai/
  * License: GPLv2 or later
@@ -77,7 +77,7 @@ function virage_ai_settings_init()
         'organization_uuid' => ['label' => __('Organization UUID', 'virage-ai-chat-widget'), 'type' => 'text', 'required' => true],
         'project_uuid' => ['label' => __('Project UUID', 'virage-ai-chat-widget'), 'type' => 'text', 'required' => true],
         'channel_uuid' => ['label' => __('Channel UUID', 'virage-ai-chat-widget'), 'type' => 'text', 'required' => true],
-        'whatsapp_redirect_url' => ['label' => __('WhatsApp Redirect URL', 'virage-ai-chat-widget'), 'type' => 'url'],
+        'whatsapp_redirect_url' => ['label' => __('WhatsApp Redirect URL', 'virage-ai-chat-widget'), 'type' => 'url', 'required' => true],
 
         'button_icon_url' => ['label' => __('Button Icon URL', 'virage-ai-chat-widget'), 'type' => 'url', 'default' => 'https://storage.googleapis.com/virage-public/chat-widget/whatsapp.svg'],
         'button_text' => ['label' => __('Button Text', 'virage-ai-chat-widget'), 'type' => 'text'],
@@ -91,7 +91,7 @@ function virage_ai_settings_init()
         'popup_avatar_name' => ['label' => __('Popup Avatar Name', 'virage-ai-chat-widget'), 'type' => 'text', 'default' => __('Virage AI', 'virage-ai-chat-widget')],
         'popup_whats_app_text' => ['label' => __('Popup WhatsApp Text', 'virage-ai-chat-widget'), 'type' => 'textarea', 'default' => __('Scan this QR code to start<br/>the conversation on WhatsApp:', 'virage-ai-chat-widget')],
         'popup_whats_app_cta_text' => ['label' => __('Popup WhatsApp CTA Text', 'virage-ai-chat-widget'), 'type' => 'text', 'default' => __('Continue on desktop', 'virage-ai-chat-widget')],
-        'popup-web-welcome-text' => ['label' => __('Popup Web Welcome Text', 'virage-ai-chat-widget'), 'type' => 'textarea', 'default' => __('Hello!<br />How can I help you?:', 'virage-ai-chat-widget')],
+        'popup_web_welcome_text' => ['label' => __('Popup Web Welcome Text', 'virage-ai-chat-widget'), 'type' => 'textarea', 'default' => __('Hello!<br/>How can I help you?:', 'virage-ai-chat-widget')],
 
         'popup_width' => ['label' => __('Popup Width', 'virage-ai-chat-widget'), 'type' => 'text', 'default' => '350px'],
         'popup_height' => ['label' => __('Popup Height', 'virage-ai-chat-widget'), 'type' => 'text', 'default' => '490px'],
@@ -233,7 +233,7 @@ function virage_ai_sanitize_options($input)
             $sanitized_input[$s_key] = sanitize_hex_color($value);
         } elseif (str_ends_with($s_key, '_url')) {
             $sanitized_input[$s_key] = esc_url_raw(trim($value));
-        } elseif ($s_key === 'popup_whats_app_text') {
+        } elseif (str_ends_with($s_key, '_text')) {
             $sanitized_input[$s_key] = wp_kses(trim($value), ['br' => []]);
         } else {
             $sanitized_input[$s_key] = sanitize_text_field(trim($value));
@@ -246,7 +246,7 @@ function virage_ai_sanitize_options($input)
         'popup_avatar_name' => __('Popup Avatar Name', 'virage-ai-chat-widget'),
         'popup_whats_app_text' => __('Popup WhatsApp Text', 'virage-ai-chat-widget'),
         'popup_whats_app_cta_text' => __('Popup WhatsApp CTA Text', 'virage-ai-chat-widget'),
-        'popup-web-welcome-text' => __('Popup Web Welcome Text', 'virage-ai-chat-widget'),
+        'popup_web_welcome_text' => __('Popup Web Welcome Text', 'virage-ai-chat-widget'),
     ];
 
     foreach ($translatable_fields as $key => $label) {
@@ -338,7 +338,7 @@ function virage_ai_add_widget_script()
     $options['popup_avatar_name'] = virage_ai_get_translated_string($options['popup_avatar_name'] ?? '', __('Popup Avatar Name', 'virage-ai-chat-widget'));
     $options['popup_whats_app_text'] = virage_ai_get_translated_string($options['popup_whats_app_text'] ?? '', __('Popup WhatsApp Text', 'virage-ai-chat-widget'));
     $options['popup_whats_app_cta_text'] = virage_ai_get_translated_string($options['popup_whats_app_cta_text'] ?? '', __('Popup WhatsApp CTA Text', 'virage-ai-chat-widget'));
-    $options['popup-web-welcome-text'] = virage_ai_get_translated_string($options['popup-web-welcome-text'] ?? '', __('Popup Web Welcome Text', 'virage-ai-chat-widget'));
+    $options['popup_web_welcome_text'] = virage_ai_get_translated_string($options['popup_web_welcome_text'] ?? '', __('Popup Web Welcome Text', 'virage-ai-chat-widget'));
 
     // 4. Build and output the script tag
     $data_attrs = '';
