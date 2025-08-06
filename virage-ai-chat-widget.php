@@ -1,13 +1,14 @@
 <?php
 /**
- * Plugin Name: Virage AI Chat Widget
- * Description: Intégrez facilement le widget de chat Virage AI sur votre site WordPress avec des règles d'affichage avancées. Une fois activé, rendez-vous dans **Réglages > Virage AI Chat** pour configurer le widget
- * Version: 1.0.0
- * Author: Virage AI
- * Author URI: https://virage.ai/
- * License: GPLv2 or later
- * License URI: https://www.gnu.org/licenses/gpl-2.0.html
- * Text Domain: virage-ai-chat-widget
+ * Plugin Name:       Virage AI Chat Widget
+ * Description:       Easily integrate the Virage AI chat widget on your WordPress site with advanced display rules. Once activated, go to **Settings > Virage AI Chat** to configure the widget.
+ * Version:           1.1.0
+ * Author:            Virage AI
+ * Author URI:        https://virage.ai/
+ * License:           GPLv2 or later
+ * License URI:       https://www.gnu.org/licenses/gpl-2.0.html
+ * Text Domain:       virage-ai-chat-widget
+ * Domain Path:       /languages
  */
 
 // If this file is called directly, abort.
@@ -15,8 +16,20 @@ if (!defined('WPINC')) {
     die;
 }
 
-require 'plugin-update-checker/plugin-update-checker.php';
+/**
+ * Load plugin textdomain for localization.
+ * This function loads the .mo file for the current language.
+ */
+function virage_ai_load_textdomain()
+{
+    load_plugin_textdomain('virage-ai-chat-widget', false, dirname(plugin_basename(__FILE__)) . '/languages/');
+}
 
+add_action('plugins_loaded', 'virage_ai_load_textdomain');
+
+
+// Setup for automatic updates from GitHub.
+require 'plugin-update-checker/plugin-update-checker.php';
 $myUpdateChecker = YahnisElsts\PluginUpdateChecker\v5\PucFactory::buildUpdateChecker(
     'https://github.com/Virage-AI/virage-ai-chat-widget',
     __FILE__,
@@ -34,8 +47,8 @@ $myUpdateChecker->setBranch('main');
 function virage_ai_add_admin_menu()
 {
     add_options_page(
-        'Virage AI Chat Widget Settings',
-        'Virage AI Chat',
+        __('Virage AI Chat Widget Settings', 'virage-ai-chat-widget'), // Page Title
+        __('Virage AI Chat', 'virage-ai-chat-widget'), // Menu Title
         'manage_options',
         'virage_ai_chat_widget',
         'virage_ai_options_page_html'
@@ -54,37 +67,38 @@ function virage_ai_settings_init()
     // Section 1: Widget Configuration
     add_settings_section(
         'virage_ai_config_section',
-        'Widget Configuration',
+        __('Widget Configuration', 'virage-ai-chat-widget'),
         null,
         'virage_ai_chat_widget'
     );
 
+    // All configuration fields with translatable labels and some default values.
     $config_fields = [
-        'organization_uuid' => ['label' => 'Organization UUID', 'type' => 'text', 'required' => true],
-        'project_uuid' => ['label' => 'Project UUID', 'type' => 'text', 'required' => true],
-        'channel_uuid' => ['label' => 'Channel UUID', 'type' => 'text', 'required' => true],
-        'whatsapp_redirect_url' => ['label' => 'WhatsApp Redirect URL', 'type' => 'url'],
+        'organization_uuid' => ['label' => __('Organization UUID', 'virage-ai-chat-widget'), 'type' => 'text', 'required' => true],
+        'project_uuid' => ['label' => __('Project UUID', 'virage-ai-chat-widget'), 'type' => 'text', 'required' => true],
+        'channel_uuid' => ['label' => __('Channel UUID', 'virage-ai-chat-widget'), 'type' => 'text', 'required' => true],
+        'whatsapp_redirect_url' => ['label' => __('WhatsApp Redirect URL', 'virage-ai-chat-widget'), 'type' => 'url'],
 
-        'button_icon_url' => ['label' => 'Button Icon URL', 'type' => 'url', 'default' => 'https://storage.googleapis.com/virage-public/chat-widget/whatsapp.svg'],
-        'button_text' => ['label' => 'Button Text', 'type' => 'text'],
-        'button_text_color' => ['label' => 'Button Text Color', 'type' => 'color', 'default' => '#FFFFFF'],
-        'button_bg_color' => ['label' => 'Button Background Color', 'type' => 'color', 'default' => '#4edd82'],
-        'button_size' => ['label' => 'Button Size', 'type' => 'text', 'default' => '64px'],
-        'button_bottom_offset' => ['label' => 'Button Bottom Offset', 'type' => 'text', 'default' => '20px'],
-        'button_right_offset' => ['label' => 'Button Right Offset', 'type' => 'text', 'default' => '20px'],
+        'button_icon_url' => ['label' => __('Button Icon URL', 'virage-ai-chat-widget'), 'type' => 'url', 'default' => 'https://storage.googleapis.com/virage-public/chat-widget/whatsapp.svg'],
+        'button_text' => ['label' => __('Button Text', 'virage-ai-chat-widget'), 'type' => 'text'],
+        'button_text_color' => ['label' => __('Button Text Color', 'virage-ai-chat-widget'), 'type' => 'color', 'default' => '#FFFFFF'],
+        'button_bg_color' => ['label' => __('Button Background Color', 'virage-ai-chat-widget'), 'type' => 'color', 'default' => '#4edd82'],
+        'button_size' => ['label' => __('Button Size', 'virage-ai-chat-widget'), 'type' => 'text', 'default' => '64px'],
+        'button_bottom_offset' => ['label' => __('Button Bottom Offset', 'virage-ai-chat-widget'), 'type' => 'text', 'default' => '20px'],
+        'button_right_offset' => ['label' => __('Button Right Offset', 'virage-ai-chat-widget'), 'type' => 'text', 'default' => '20px'],
 
-        'popup_avatar_url' => ['label' => 'Popup Avatar URL', 'type' => 'url', 'default' => 'https://storage.googleapis.com/virage-public/chat-widget/squared_white.jpg'],
-        'popup_avatar_name' => ['label' => 'Popup Avatar Name', 'type' => 'text', 'default' => 'Virage AI'],
-        'popup_whats_app_text' => ['label' => 'Popup WhatsApp Text', 'type' => 'textarea', 'default' => 'Scan this QR code to start<br/>the conversation on WhatsApp:'],
-        'popup_whats_app_cta_text' => ['label' => 'Popup WhatsApp CTA Text', 'type' => 'text', 'default' => 'Continue on desktop'],
+        'popup_avatar_url' => ['label' => __('Popup Avatar URL', 'virage-ai-chat-widget'), 'type' => 'url', 'default' => 'https://storage.googleapis.com/virage-public/chat-widget/squared_white.jpg'],
+        'popup_avatar_name' => ['label' => __('Popup Avatar Name', 'virage-ai-chat-widget'), 'type' => 'text', 'default' => __('Virage AI', 'virage-ai-chat-widget')],
+        'popup_whats_app_text' => ['label' => __('Popup WhatsApp Text', 'virage-ai-chat-widget'), 'type' => 'textarea', 'default' => __('Scan this QR code to start<br/>the conversation on WhatsApp:', 'virage-ai-chat-widget')],
+        'popup_whats_app_cta_text' => ['label' => __('Popup WhatsApp CTA Text', 'virage-ai-chat-widget'), 'type' => 'text', 'default' => __('Continue on desktop', 'virage-ai-chat-widget')],
 
-        'popup_width' => ['label' => 'Popup Width', 'type' => 'text', 'default' => '350px'],
-        'popup_height' => ['label' => 'Popup Height', 'type' => 'text', 'default' => '490px'],
-        'popup_bottom_offset' => ['label' => 'Popup Bottom Offset', 'type' => 'text', 'default' => '90px'],
-        'popup_right_offset' => ['label' => 'Popup Right Offset', 'type' => 'text', 'default' => '20px'],
+        'popup_width' => ['label' => __('Popup Width', 'virage-ai-chat-widget'), 'type' => 'text', 'default' => '350px'],
+        'popup_height' => ['label' => __('Popup Height', 'virage-ai-chat-widget'), 'type' => 'text', 'default' => '490px'],
+        'popup_bottom_offset' => ['label' => __('Popup Bottom Offset', 'virage-ai-chat-widget'), 'type' => 'text', 'default' => '90px'],
+        'popup_right_offset' => ['label' => __('Popup Right Offset', 'virage-ai-chat-widget'), 'type' => 'text', 'default' => '20px'],
 
-        'popup_tabs' => ['label' => 'Popup Tabs', 'type' => 'text', 'default' => '1,2'],
-        'popup_content_url' => ['label' => 'Popup Content URL', 'type' => 'url', 'default' => 'https://chat-widget.virage.ai'],
+        'popup_tabs' => ['label' => __('Popup Tabs', 'virage-ai-chat-widget'), 'type' => 'text', 'default' => '1,2'],
+        'popup_content_url' => ['label' => __('Popup Content URL', 'virage-ai-chat-widget'), 'type' => 'url', 'default' => 'https://chat-widget.virage.ai'],
     ];
 
     foreach ($config_fields as $id => $field) {
@@ -94,16 +108,15 @@ function virage_ai_settings_init()
     // Section 2: Display Rules
     add_settings_section(
         'virage_ai_display_section',
-        'Display Rules',
+        __('Display Rules', 'virage-ai-chat-widget'),
         function () {
-            echo '<p>Use these settings to control exactly where the chat widget appears on your site.</p>';
+            echo '<p>' . esc_html__('Use these settings to control exactly where the chat widget appears on your site.', 'virage-ai-chat-widget') . '</p>';
         },
         'virage_ai_chat_widget'
     );
 
-    add_settings_field('virage_ai_enabled', 'Enable Chat Widget', 'virage_ai_field_callback', 'virage_ai_chat_widget', 'virage_ai_display_section', ['id' => 'enabled', 'type' => 'checkbox', 'description' => 'This is the main switch. If this is off, the widget will not appear anywhere.']);
-
-    add_settings_field('virage_ai_display_locations', 'Show on Specific Page Types', 'virage_ai_display_locations_callback', 'virage_ai_chat_widget', 'virage_ai_display_section');
+    add_settings_field('virage_ai_enabled', __('Enable Chat Widget', 'virage-ai-chat-widget'), 'virage_ai_field_callback', 'virage_ai_chat_widget', 'virage_ai_display_section', ['id' => 'enabled', 'type' => 'checkbox', 'description' => __('This is the main switch. If this is off, the widget will not appear anywhere.', 'virage-ai-chat-widget')]);
+    add_settings_field('virage_ai_display_locations', __('Show on Specific Page Types', 'virage-ai-chat-widget'), 'virage_ai_display_locations_callback', 'virage_ai_chat_widget', 'virage_ai_display_section');
 }
 
 add_action('admin_init', 'virage_ai_settings_init');
@@ -149,36 +162,37 @@ function virage_ai_display_locations_callback()
     $options = get_option('virage_ai_options');
     $locations = $options['display_locations'] ?? [];
 
+    // Translatable page types
     $page_types = [
-        'homepage' => 'Homepage',
-        'posts' => 'All Posts (single post view)',
-        'pages' => 'All Pages',
-        'archives' => 'Archive Pages',
-        'categories' => 'Category Pages',
-        'e404_page' => '404 Not Found Page',
+        'homepage' => __('Homepage', 'virage-ai-chat-widget'),
+        'posts' => __('All Posts (single post view)', 'virage-ai-chat-widget'),
+        'pages' => __('All Pages', 'virage-ai-chat-widget'),
+        'archives' => __('Archive Pages', 'virage-ai-chat-widget'),
+        'categories' => __('Category Pages', 'virage-ai-chat-widget'),
+        'e404_page' => __('404 Not Found Page', 'virage-ai-chat-widget'),
     ];
 
-    echo '<h4>Standard Pages</h4>';
+    echo '<h4>' . esc_html__('Standard Pages', 'virage-ai-chat-widget') . '</h4>';
     foreach ($page_types as $key => $label) {
-        $checked = isset($locations[$key]) ? $locations[$key] : 0;
+        $checked = isset($locations[$key]) && $locations[$key] == 1;
         printf(
             '<label style="display: block; margin-bottom: 5px;"><input type="checkbox" name="virage_ai_options[display_locations][%s]" value="1" %s /> %s</label>',
             esc_attr($key),
-            checked(1, $checked, false),
+            checked($checked, true, false),
             esc_html($label)
         );
     }
 
     $custom_post_types = get_post_types(['public' => true, '_builtin' => false], 'objects');
     if (!empty($custom_post_types)) {
-        echo '<h4>Custom Post Types</h4>';
+        echo '<h4>' . esc_html__('Custom Post Types', 'virage-ai-chat-widget') . '</h4>';
         foreach ($custom_post_types as $cpt) {
-            $checked = isset($locations['cpt'][$cpt->name]) ? $locations['cpt'][$cpt->name] : 0;
+            $checked = isset($locations['cpt'][$cpt->name]) && $locations['cpt'][$cpt->name] == 1;
             printf(
                 '<label style="display: block; margin-bottom: 5px;"><input type="checkbox" name="virage_ai_options[display_locations][cpt][%s]" value="1" %s /> %s</label>',
                 esc_attr($cpt->name),
-                checked(1, $checked, false),
-                esc_html($cpt->labels->name)
+                checked($checked, true, false),
+                esc_html($cpt->labels->name) // CPT labels are translatable by default in WordPress.
             );
         }
     }
@@ -190,10 +204,9 @@ function virage_ai_display_locations_callback()
 function virage_ai_sanitize_options($input)
 {
     $sanitized_input = [];
-    $options = get_option('virage_ai_options');
 
     // Sanitize display locations
-    if (isset($input['display_locations'])) {
+    if (isset($input['display_locations']) && is_array($input['display_locations'])) {
         $display_locations = [];
         foreach ($input['display_locations'] as $key => $value) {
             if ($key === 'cpt' && is_array($value)) {
@@ -206,22 +219,37 @@ function virage_ai_sanitize_options($input)
         }
         $sanitized_input['display_locations'] = $display_locations;
     } else {
-        // If no checkboxes are checked, ensure the option is an empty array
         $sanitized_input['display_locations'] = [];
     }
 
-    // Sanitize other fields
-    foreach ($input as $key => $value) {
-        if ($key === 'display_locations') continue; // Already handled
+    // Sanitize all other fields
+    $other_fields = $input;
+    unset($other_fields['display_locations']);
 
-        if ($key === 'button_bg_color') {
-            $sanitized_input[$key] = sanitize_hex_color($value);
-        } elseif (strpos($key, '_url') !== false) {
-            $sanitized_input[$key] = esc_url_raw(trim($value));
-        } elseif ($key === 'popup_text') {
-            $sanitized_input[$key] = wp_kses($value, ['br' => []]);
+    foreach ($other_fields as $key => $value) {
+        $s_key = sanitize_key($key);
+        if (str_ends_with($s_key, '_color')) {
+            $sanitized_input[$s_key] = sanitize_hex_color($value);
+        } elseif (str_ends_with($s_key, '_url')) {
+            $sanitized_input[$s_key] = esc_url_raw(trim($value));
+        } elseif ($s_key === 'popup_whats_app_text') {
+            $sanitized_input[$s_key] = wp_kses(trim($value), ['br' => []]);
         } else {
-            $sanitized_input[$key] = sanitize_text_field(trim($value));
+            $sanitized_input[$s_key] = sanitize_text_field(trim($value));
+        }
+    }
+
+    // Define which fields are translatable
+    $translatable_fields = [
+        'button_text' => __('Button Text', 'virage-ai-chat-widget'),
+        'popup_avatar_name' => __('Popup Avatar Name', 'virage-ai-chat-widget'),
+        'popup_whats_app_text' => __('Popup WhatsApp Text', 'virage-ai-chat-widget'),
+        'popup_whats_app_cta_text' => __('Popup WhatsApp CTA Text', 'virage-ai-chat-widget'),
+    ];
+
+    foreach ($translatable_fields as $key => $label) {
+        if (!empty($input[$key])) {
+            virage_ai_register_string_for_translation($input[$key], $label);
         }
     }
 
@@ -254,7 +282,7 @@ function virage_ai_options_page_html()
             <?php
             settings_fields('virage_ai_options_group');
             do_settings_sections('virage_ai_chat_widget');
-            submit_button('Save Settings');
+            submit_button(__('Save Settings', 'virage-ai-chat-widget'));
             ?>
         </form>
     </div>
@@ -273,17 +301,20 @@ function virage_ai_add_widget_script()
     $options = get_option('virage_ai_options');
 
     // 1. Check for required UUIDs and the main 'enabled' switch
-    if (empty($options['organization_uuid']) || empty($options['project_uuid']) || empty($options['channel_uuid']) || empty($options['enabled'])) {
+    if (empty($options['enabled']) || empty($options['organization_uuid']) || empty($options['project_uuid']) || empty($options['channel_uuid'])) {
         return;
     }
 
     // 2. Check display rules
     $locations = $options['display_locations'] ?? [];
+    if (empty($locations)) {
+        return; // Don't show if no locations are chosen
+    }
     $show_widget = false;
 
     if (is_front_page() && !empty($locations['homepage'])) $show_widget = true;
     if (is_singular('post') && !empty($locations['posts'])) $show_widget = true;
-    if (is_singular('page') && !empty($locations['pages'])) $show_widget = true;
+    if (is_page() && !is_front_page() && !empty($locations['pages'])) $show_widget = true;
     if (is_archive() && !empty($locations['archives'])) $show_widget = true;
     if (is_category() && !empty($locations['categories'])) $show_widget = true;
     if (is_404() && !empty($locations['e404_page'])) $show_widget = true;
@@ -296,14 +327,19 @@ function virage_ai_add_widget_script()
         }
     }
 
-    // If no rules match, do not show the widget
     if (!$show_widget) {
         return;
     }
 
-    // 3. Build and output the script tag
+    // 3. Get translated versions of the options before outputting them
+    $options['button_text'] = virage_ai_get_translated_string($options['button_text'] ?? '', __('Button Text', 'virage-ai-chat-widget'));
+    $options['popup_avatar_name'] = virage_ai_get_translated_string($options['popup_avatar_name'] ?? '', __('Popup Avatar Name', 'virage-ai-chat-widget'));
+    $options['popup_whats_app_text'] = virage_ai_get_translated_string($options['popup_whats_app_text'] ?? '', __('Popup WhatsApp Text', 'virage-ai-chat-widget'));
+    $options['popup_whats_app_cta_text'] = virage_ai_get_translated_string($options['popup_whats_app_cta_text'] ?? '', __('Popup WhatsApp CTA Text', 'virage-ai-chat-widget'));
+
+    // 4. Build and output the script tag
     $data_attrs = '';
-    $exclude_from_data = ['enabled', 'display_locations']; // Don't add these as data attributes
+    $exclude_from_data = ['enabled', 'display_locations'];
 
     foreach ($options as $key => $value) {
         if (!empty($value) && !in_array($key, $exclude_from_data)) {
@@ -319,3 +355,56 @@ function virage_ai_add_widget_script()
 }
 
 add_action('wp_footer', 'virage_ai_add_widget_script');
+
+/**
+ * Add a settings link to the plugins page for easy access.
+ */
+function virage_ai_add_settings_link($links)
+{
+    $settings_link = '<a href="options-general.php?page=virage_ai_chat_widget">' . __('Settings', 'virage-ai-chat-widget') . '</a>';
+    array_unshift($links, $settings_link);
+    return $links;
+}
+
+add_filter('plugin_action_links_' . plugin_basename(__FILE__), 'virage_ai_add_settings_link');
+
+/**
+ * Registers a dynamic string for translation with WPML or Polylang.
+ *
+ * @param string $string_value The string to register.
+ * @param string $string_name  A unique name for the string (e.g., 'Popup WhatsApp Text').
+ * @param string $context      The group/context for the string (your plugin name is a good choice).
+ */
+function virage_ai_register_string_for_translation($string_value, $string_name, $context = 'Virage AI Chat Widget') {
+    // For WPML
+    if (function_exists('do_action')) {
+        do_action('wpml_register_single_string', $context, $string_name, $string_value);
+    }
+
+    // For Polylang
+    if (function_exists('pll_register_string')) {
+        pll_register_string($string_name, $string_value, $context);
+    }
+}
+
+/**
+ * A helper function to get the translated version of a string.
+ *
+ * @param string $string_value The default string value.
+ * @param string $string_name  The unique name of the string.
+ * @param string $context      The group/context for the string.
+ * @return string The translated string if available, otherwise the original.
+ */
+function virage_ai_get_translated_string($string_value, $string_name, $context = 'Virage AI Chat Widget') {
+    // For WPML
+    if (function_exists('apply_filters')) {
+        $string_value = apply_filters('wpml_translate_single_string', $string_value, $context, $string_name);
+    }
+
+    // For Polylang
+    if (function_exists('pll__')) {
+        $string_value = pll__($string_value);
+    }
+
+    return $string_value;
+}

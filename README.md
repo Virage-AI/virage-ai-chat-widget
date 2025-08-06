@@ -1,36 +1,69 @@
+[![en](https://img.shields.io/badge/lang-en-red.svg)](https://github.com/Virage-AI/virage-ai-chat-widget/blob/main/README.md)
+[![fr](https://img.shields.io/badge/lang-fr-blue.svg)](https://github.com/Virage-AI/virage-ai-chat-widget/blob/main/README.fr.md)
+
 # Virage AI Chat Widget
 
-Le plugin **Virage AI Chat Widget** permet d'ajouter facilement un de chat avec votre assistant intelligent sur votre site WordPress.
-Ce widget est conçu spécifiquement pour les clients de Virage et permet une interaction automatisée et personnalisée avec les visiteurs de votre site.
+The **Virage AI Chat Widget** plugin allows you to easily add a chat with your intelligent assistant to your WordPress
+site. This widget is designed specifically for Virage clients and enables automated and personalized interaction with
+your site visitors.
 
 ---
 
 ## 🔧 Installation
 
-### ✅ Depuis votre tableau de bord WordPress
+### ✅ From your WordPress dashboard
 
-1. Téléchargez la dernière version du plugin [ICI](https://github.com/Virage-AI/virage-ai-chat-widget/archive/refs/heads/main.zip)
-2. Dans votre panneau d’administration WordPress, allez dans **Extensions > Ajouter**
-3. Cliquez sur le bouton **Téléverser une extension** en haut de la page
-4. Sélectionnez le fichier `virage-ai-chat-widget.zip` téléchargé précédemment
-5. Cliquez sur **Installer maintenant**, puis sur **Activer**
-6. Une fois activé, rendez-vous dans **Réglages > Virage AI Chat** pour configurer le widget
-
----
-
-## 🔄 Mises à jour
-
-Les mises à jour du plugin sont disponibles directement depuis l’interface d’administration WordPress, comme pour n’importe quelle autre extension.
+1. Download the latest version of the
+   plugin [HERE](https://github.com/Virage-AI/virage-ai-chat-widget/archive/refs/heads/main.zip)
+2. In your WordPress admin panel, go to **Plugins > Add New**
+3. Click the **Upload Plugin** button at the top of the page
+4. Select the `virage-ai-chat-widget.zip` file you previously downloaded
+5. Click **Install Now**, then **Activate**
+6. Once activated, go to **Settings > Virage AI Chat** to configure the widget
 
 ---
 
-## 🧩 Prérequis
+## 🌐 Multilingual Management and Translation
 
-- WordPress 5.0 ou supérieur
-- PHP 7.4 ou supérieur
+Is your site available in multiple languages? You can translate the text you enter in the widget's options (like the "
+Button Text" or "Popup Text") using a multilingual plugin.
+
+The plugin is compatible with the most popular extensions like **WPML** or **Polylang**.
+
+### How to translate the widget's content?
+
+1. **Install and configure a multilingual plugin** (e.g., WPML or Polylang) on your site.
+
+2. **Enter the default text:**
+    * Go to **Settings > Virage AI Chat**.
+    * Fill in the text fields (e.g., `Button Text`, `Popup WhatsApp Text`) in your site's primary language.
+    * Click **Save Changes**. This action saves your text and makes it available for translation.
+
+3. **Translate the text strings:**
+    * Go to your multilingual plugin's translation interface (e.g., **WPML > String Translation** or **Languages >
+      String Translations** for Polylang).
+    * Search for the text strings using the `Virage AI Chat Widget` domain.
+    * You will find all the text you entered in the previous step.
+    * Add the translations for each language configured on your site.
+
+Once these steps are completed, the widget will automatically display the text in the correct language based on the
+language chosen by the visitor.
 
 ---
 
-## 📘 Licence
+## 🔄 Updates
 
-Ce plugin est distribué sous la licence **GPLv2 ou ultérieure**.
+Plugin updates are available directly from the WordPress admin interface, just like any other plugin.
+
+---
+
+## 🧩 Requirements
+
+- WordPress 5.0 or higher
+- PHP 7.4 or higher
+
+---
+
+## 📘 License
+
+This plugin is distributed under the **GPLv2 or later** license.
