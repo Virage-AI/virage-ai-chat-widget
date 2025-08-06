@@ -1,6 +1,6 @@
 # Virage AI Chat Widget
 
-Le plugin **Virage AI Chat Widget** permet d'ajouter facilement un de chat avec votre assistant intelligent sur votre site WordPress.
+Le plugin **Virage AI Chat Widget** permet d'ajouter facilement une popup de chat avec votre assistant intelligent sur votre site WordPress.
 Ce widget est conçu spécifiquement pour les clients de Virage et permet une interaction automatisée et personnalisée avec les visiteurs de votre site.
 
 ---
