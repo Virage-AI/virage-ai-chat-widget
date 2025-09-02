@@ -4,184 +4,212 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Virage AI Chat Widget 1.1.0\n"
-"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/virage-ai-chat-widget\n"
-"POT-Creation-Date: 2025-08-06 11:16:00+02:00\n"
+"Project-Id-Version: Virage AI Chat Widget 1.2.0\n"
+"Report-Msgid-Bugs-To: https://github.com/Virage-AI/virage-ai-chat-widget\n"
+"POT-Creation-Date: 2025-09-02 21:37:00+02:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2025-08-06 11:51:00+02:00\n"
-"Last-Translator: Virage AI <contact@virage.ai>\n"
+"PO-Revision-Date: 2025-09-02 21:37:00+02:00\n"
+"Last-Translator: Johann Fradj johann@virage.ai\n"
 "Language-Team: French <fr_FR>\n"
 "Language: fr_FR\n"
-"Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Gemini Language Model\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Domain: virage-ai-chat-widget\n"
 
-#: virage-ai-chat-widget.php:49
+#: virage-ai-chat-widget.php:51
 msgid "Virage AI Chat Widget Settings"
 msgstr "Paramètres du widget de chat Virage AI"
 
-#: virage-ai-chat-widget.php:50
+#: virage-ai-chat-widget.php:52
 msgid "Virage AI Chat"
 msgstr "Chat Virage AI"
 
 #: virage-ai-chat-widget.php:65
-msgid "Widget Configuration"
-msgstr "Configuration du widget"
-
-#: virage-ai-chat-widget.php:71
-msgid "Organization UUID"
-msgstr "UUID de l'organisation"
-
-#: virage-ai-chat-widget.php:72
-msgid "Project UUID"
-msgstr "UUID du projet"
-
-#: virage-ai-chat-widget.php:73
-msgid "Channel UUID"
-msgstr "UUID du canal"
-
-#: virage-ai-chat-widget.php:74
-msgid "WhatsApp Redirect URL"
-msgstr "URL de redirection WhatsApp"
-
-#: virage-ai-chat-widget.php:76
-msgid "Button Icon URL"
-msgstr "URL de l'icône du bouton"
-
-#: virage-ai-chat-widget.php:77
-msgid "Button Text"
-msgstr "Texte du bouton"
-
-#: virage-ai-chat-widget.php:78
-msgid "Button Text Color"
-msgstr "Couleur du texte du bouton"
-
-#: virage-ai-chat-widget.php:79
-msgid "Button Background Color"
-msgstr "Couleur de fond du bouton"
-
-#: virage-ai-chat-widget.php:80
-msgid "Button Size"
-msgstr "Taille du bouton"
-
-#: virage-ai-chat-widget.php:81
-msgid "Button Bottom Offset"
-msgstr "Marge inférieure du bouton"
-
-#: virage-ai-chat-widget.php:82
-msgid "Button Right Offset"
-msgstr "Marge droite du bouton"
-
-#: virage-ai-chat-widget.php:84
-msgid "Popup Avatar URL"
-msgstr "URL de l'avatar de la popup"
-
-#: virage-ai-chat-widget.php:85
-msgid "Popup Avatar Name"
-msgstr "Nom de l'avatar de la popup"
-
-#: virage-ai-chat-widget.php:85
-msgid "Virage AI"
-msgstr "Virage AI"
-
-#: virage-ai-chat-widget.php:86
-msgid "Popup WhatsApp Text"
-msgstr "Texte WhatsApp de la popup"
-
-#: virage-ai-chat-widget.php:86
-msgid "Scan this QR code to start<br/>the conversation on WhatsApp:"
-msgstr "Scannez ce code QR pour démarrer<br/>la conversation sur WhatsApp :"
-
-#: virage-ai-chat-widget.php:87
-msgid "Popup WhatsApp CTA Text"
-msgstr "Texte du CTA WhatsApp de la popup"
-
-#: virage-ai-chat-widget.php:87
-msgid "Continue on desktop"
-msgstr "Continuer sur l'ordinateur"
-
-#: virage-ai-chat-widget.php:89
-msgid "Popup Width"
-msgstr "Largeur de la popup"
-
-#: virage-ai-chat-widget.php:90
-msgid "Popup Height"
-msgstr "Hauteur de la popup"
-
-#: virage-ai-chat-widget.php:91
-msgid "Popup Bottom Offset"
-msgstr "Marge inférieure de la popup"
-
-#: virage-ai-chat-widget.php:92
-msgid "Popup Right Offset"
-msgstr "Marge droite de la popup"
-
-#: virage-ai-chat-widget.php:94
-msgid "Popup Tabs"
-msgstr "Onglets de la popup"
-
-#: virage-ai-chat-widget.php:95
-msgid "Popup Content URL"
-msgstr "URL du contenu de la popup"
-
-#: virage-ai-chat-widget.php:104
-msgid "Display Rules"
-msgstr "Règles d'affichage"
-
-#: virage-ai-chat-widget.php:106
-msgid "Use these settings to control exactly where the chat widget appears on your site."
-msgstr "Utilisez ces paramètres pour contrôler précisément où le widget de chat apparaît sur votre site."
-
-#: virage-ai-chat-widget.php:111
 msgid "Enable Chat Widget"
 msgstr "Activer le widget de chat"
 
-#: virage-ai-chat-widget.php:111
+#: virage-ai-chat-widget.php:65
 msgid "This is the main switch. If this is off, the widget will not appear anywhere."
 msgstr "C'est l'interrupteur principal. S'il est désactivé, le widget n'apparaîtra nulle part."
 
+#: virage-ai-chat-widget.php:69
+msgid "Widget Configuration"
+msgstr "Configuration du widget"
+
+#: virage-ai-chat-widget.php:74
+msgid "Organization UUID"
+msgstr "UUID de l'organisation"
+
+#: virage-ai-chat-widget.php:75
+msgid "Project UUID"
+msgstr "UUID du projet"
+
+#: virage-ai-chat-widget.php:76
+msgid "Channel UUID"
+msgstr "UUID du canal"
+
+#: virage-ai-chat-widget.php:77
+msgid "WhatsApp Redirect URL"
+msgstr "URL de redirection WhatsApp"
+
+#: virage-ai-chat-widget.php:86
+msgid "Button Customization"
+msgstr "Personnalisation du bouton"
+
+#: virage-ai-chat-widget.php:91
+msgid "Button Icon URL"
+msgstr "URL de l'icône du bouton"
+
+#: virage-ai-chat-widget.php:92
+msgid "Button Text"
+msgstr "Texte du bouton"
+
+#: virage-ai-chat-widget.php:93
+msgid "Button Text Color"
+msgstr "Couleur du texte du bouton"
+
+#: virage-ai-chat-widget.php:94
+msgid "Button Background Color"
+msgstr "Couleur de fond du bouton"
+
+#: virage-ai-chat-widget.php:95
+msgid "Button Size"
+msgstr "Taille du bouton"
+
+#: virage-ai-chat-widget.php:96
+msgid "Button Bottom Offset"
+msgstr "Marge inférieure du bouton"
+
+#: virage-ai-chat-widget.php:97
+msgid "Button Right Offset"
+msgstr "Marge droite du bouton"
+
+#: virage-ai-chat-widget.php:106
+msgid "Popup Customization"
+msgstr "Personnalisation de la popup"
+
+#: virage-ai-chat-widget.php:111
+msgid "Popup Tabs"
+msgstr "Onglets de la popup"
+
 #: virage-ai-chat-widget.php:112
+msgid "Popup Start Tab"
+msgstr "Onglet de démarrage de la popup"
+
+#: virage-ai-chat-widget.php:114
+msgid "Popup Header Background Color"
+msgstr "Couleur de fond de l'en-tête de la popup"
+
+#: virage-ai-chat-widget.php:115
+msgid "Popup Avatar URL"
+msgstr "URL de l'avatar de la popup"
+
+#: virage-ai-chat-widget.php:116
+msgid "Popup Avatar Name"
+msgstr "Nom de l'avatar de la popup"
+
+#: virage-ai-chat-widget.php:116
+msgid "Virage AI"
+msgstr "Virage AI"
+
+#: virage-ai-chat-widget.php:118
+msgid "Popup Width"
+msgstr "Largeur de la popup"
+
+#: virage-ai-chat-widget.php:119
+msgid "Popup Height"
+msgstr "Hauteur de la popup"
+
+#: virage-ai-chat-widget.php:120
+msgid "Popup Bottom Offset"
+msgstr "Marge inférieure de la popup"
+
+#: virage-ai-chat-widget.php:121
+msgid "Popup Right Offset"
+msgstr "Marge droite de la popup"
+
+#: virage-ai-chat-widget.php:130
+msgid "WhatsApp Tab Customization"
+msgstr "Personnalisation de l'onglet WhatsApp"
+
+#: virage-ai-chat-widget.php:135
+msgid "Popup WhatsApp Text"
+msgstr "Texte WhatsApp de la popup"
+
+#: virage-ai-chat-widget.php:135
+msgid "Scan this QR code to start<br/>the conversation on WhatsApp:"
+msgstr "Scannez ce code QR pour démarrer<br/>la conversation sur WhatsApp :"
+
+#: virage-ai-chat-widget.php:136
+msgid "Popup WhatsApp CTA Text"
+msgstr "Texte du CTA WhatsApp de la popup"
+
+#: virage-ai-chat-widget.php:136
+msgid "Continue on desktop"
+msgstr "Continuer sur l'ordinateur"
+
+#: virage-ai-chat-widget.php:145
+msgid "Web Tab Customization"
+msgstr "Personnalisation de l'onglet Web"
+
+#: virage-ai-chat-widget.php:150
+msgid "Popup Web Welcome Text"
+msgstr "Texte d'accueil de l'onglet Web"
+
+#: virage-ai-chat-widget.php:150
+msgid "Hello!<br/>How can I help you?:"
+msgstr "Bonjour !<br/>Comment puis-je vous aider ? :"
+
+#: virage-ai-chat-widget.php:159
+msgid "Display Rules"
+msgstr "Règles d'affichage"
+
+#: virage-ai-chat-widget.php:161
+msgid "Use these settings to control exactly where the chat widget appears on your site."
+msgstr "Utilisez ces paramètres pour contrôler précisément où le widget de chat apparaît sur votre site."
+
+#: virage-ai-chat-widget.php:166
 msgid "Show on Specific Page Types"
 msgstr "Afficher sur des types de pages spécifiques"
 
-#: virage-ai-chat-widget.php:151
+#: virage-ai-chat-widget.php:218
 msgid "Homepage"
 msgstr "Page d'accueil"
 
-#: virage-ai-chat-widget.php:152
+#: virage-ai-chat-widget.php:219
 msgid "All Posts (single post view)"
 msgstr "Tous les articles (vue article seul)"
 
-#: virage-ai-chat-widget.php:153
+#: virage-ai-chat-widget.php:220
 msgid "All Pages"
 msgstr "Toutes les pages"
 
-#: virage-ai-chat-widget.php:154
+#: virage-ai-chat-widget.php:221
 msgid "Archive Pages"
 msgstr "Pages d'archives"
 
-#: virage-ai-chat-widget.php:155
+#: virage-ai-chat-widget.php:222
 msgid "Category Pages"
 msgstr "Pages de catégories"
 
-#: virage-ai-chat-widget.php:156
+#: virage-ai-chat-widget.php:223
 msgid "404 Not Found Page"
 msgstr "Page 404 (introuvable)"
 
-#: virage-ai-chat-widget.php:159
+#: virage-ai-chat-widget.php:226
 msgid "Standard Pages"
 msgstr "Pages standards"
 
-#: virage-ai-chat-widget.php:170
+#: virage-ai-chat-widget.php:239
 msgid "Custom Post Types"
 msgstr "Types de publication personnalisés"
 
-#: virage-ai-chat-widget.php:248
+#: virage-ai-chat-widget.php:337
 msgid "Save Settings"
 msgstr "Enregistrer les modifications"
 
-#: virage-ai-chat-widget.php:321
+#: virage-ai-chat-widget.php:419
 msgid "Settings"
 msgstr "Réglages"
+
