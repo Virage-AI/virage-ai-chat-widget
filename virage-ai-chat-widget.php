@@ -64,7 +64,7 @@ function virage_ai_settings_init()
 {
     register_setting('virage_ai_options_group', 'virage_ai_options', 'virage_ai_sanitize_options');
 
-    add_settings_field('virage_ai_enabled', __('Enable Chat Widget', 'virage-ai-chat-widget'), 'virage_ai_field_callback', 'virage_ai_chat_widget', 'virage_ai_display_section', ['id' => 'enabled', 'type' => 'checkbox', 'description' => __('This is the main switch. If this is off, the widget will not appear anywhere.', 'virage-ai-chat-widget')]);
+    add_settings_field('virage_ai_enabled', __('Enable Chat Widget', 'virage-ai-chat-widget'), 'virage_ai_field_callback', 'virage_ai_chat_widget', 'default', ['id' => 'enabled', 'type' => 'checkbox', 'description' => __('This is the main switch. If this is off, the widget will not appear anywhere.', 'virage-ai-chat-widget')]);
 
     // Section: Widget Configuration
     add_settings_section(
@@ -100,7 +100,7 @@ function virage_ai_settings_init()
         'button_right_offset' => ['label' => __('Button Right Offset', 'virage-ai-chat-widget'), 'type' => 'text', 'default' => '20px'],
     ];
     foreach ($config_fields as $id => $field) {
-        add_settings_field('virage_ai_' . $id, $field['label'] . (isset($field['required']) ? ' <span style="color:red;">*</span>' : ''), 'virage_ai_field_callback', 'virage_ai_chat_widget', 'virage_ai_config_section', ['id' => $id, 'type' => $field['type'], 'default' => $field['default'] ?? '']);
+        add_settings_field('virage_ai_' . $id, $field['label'] . (isset($field['required']) ? ' <span style="color:red;">*</span>' : ''), 'virage_ai_field_callback', 'virage_ai_chat_widget', 'virage_ai_button_customization_section', ['id' => $id, 'type' => $field['type'], 'default' => $field['default'] ?? '']);
     }
 
     // Section: Popup Customization
@@ -124,7 +124,7 @@ function virage_ai_settings_init()
         'popup_right_offset' => ['label' => __('Popup Right Offset', 'virage-ai-chat-widget'), 'type' => 'text', 'default' => '20px'],
     ];
     foreach ($config_fields as $id => $field) {
-        add_settings_field('virage_ai_' . $id, $field['label'] . (isset($field['required']) ? ' <span style="color:red;">*</span>' : ''), 'virage_ai_field_callback', 'virage_ai_chat_widget', 'virage_ai_config_section', ['id' => $id, 'type' => $field['type'], 'default' => $field['default'] ?? '']);
+        add_settings_field('virage_ai_' . $id, $field['label'] . (isset($field['required']) ? ' <span style="color:red;">*</span>' : ''), 'virage_ai_field_callback', 'virage_ai_chat_widget', 'virage_ai_popup_customization_section', ['id' => $id, 'type' => $field['type'], 'default' => $field['default'] ?? '']);
     }
 
     // Section: WhatsApp Tab Customization
@@ -139,7 +139,7 @@ function virage_ai_settings_init()
         'popup_whats_app_cta_text' => ['label' => __('Popup WhatsApp CTA Text', 'virage-ai-chat-widget'), 'type' => 'text', 'default' => __('Continue on desktop', 'virage-ai-chat-widget')],
     ];
     foreach ($config_fields as $id => $field) {
-        add_settings_field('virage_ai_' . $id, $field['label'] . (isset($field['required']) ? ' <span style="color:red;">*</span>' : ''), 'virage_ai_field_callback', 'virage_ai_chat_widget', 'virage_ai_config_section', ['id' => $id, 'type' => $field['type'], 'default' => $field['default'] ?? '']);
+        add_settings_field('virage_ai_' . $id, $field['label'] . (isset($field['required']) ? ' <span style="color:red;">*</span>' : ''), 'virage_ai_field_callback', 'virage_ai_chat_widget', 'virage_ai_whatsapp_tab_customization_section', ['id' => $id, 'type' => $field['type'], 'default' => $field['default'] ?? '']);
     }
 
     // Section: Web Tab Customization
@@ -153,7 +153,7 @@ function virage_ai_settings_init()
         'popup_web_welcome_text' => ['label' => __('Popup Web Welcome Text', 'virage-ai-chat-widget'), 'type' => 'textarea', 'default' => __('Hello!<br/>How can I help you?:', 'virage-ai-chat-widget')],
     ];
     foreach ($config_fields as $id => $field) {
-        add_settings_field('virage_ai_' . $id, $field['label'] . (isset($field['required']) ? ' <span style="color:red;">*</span>' : ''), 'virage_ai_field_callback', 'virage_ai_chat_widget', 'virage_ai_config_section', ['id' => $id, 'type' => $field['type'], 'default' => $field['default'] ?? '']);
+        add_settings_field('virage_ai_' . $id, $field['label'] . (isset($field['required']) ? ' <span style="color:red;">*</span>' : ''), 'virage_ai_field_callback', 'virage_ai_chat_widget', 'virage_ai_web_tab_customization_section', ['id' => $id, 'type' => $field['type'], 'default' => $field['default'] ?? '']);
     }
 
     // Section 2: Display Rules
