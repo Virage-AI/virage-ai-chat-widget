@@ -64,7 +64,14 @@ function virage_ai_settings_init()
 {
     register_setting('virage_ai_options_group', 'virage_ai_options', 'virage_ai_sanitize_options');
 
-    add_settings_field('virage_ai_enabled', __('Enable Chat Widget', 'virage-ai-chat-widget'), 'virage_ai_field_callback', 'virage_ai_chat_widget', 'default', ['id' => 'enabled', 'type' => 'checkbox', 'description' => __('This is the main switch. If this is off, the widget will not appear anywhere.', 'virage-ai-chat-widget')]);
+    // Section: Global
+    add_settings_section(
+        'virage_ai_global_section',
+        __('Global', 'virage-ai-chat-widget'),
+        null,
+        'virage_ai_chat_widget'
+    );
+    add_settings_field('virage_ai_enabled', __('Enable Chat Widget', 'virage-ai-chat-widget'), 'virage_ai_field_callback', 'virage_ai_chat_widget', 'virage_ai_global_section', ['id' => 'enabled', 'type' => 'checkbox', 'description' => __('This is the main switch. If this is off, the widget will not appear anywhere.', 'virage-ai-chat-widget')]);
 
     // Section: Widget Configuration
     add_settings_section(
