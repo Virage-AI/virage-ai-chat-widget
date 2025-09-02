@@ -2,7 +2,7 @@
 /**
  * Plugin Name: Virage AI Chat Widget
  * Description: Easily integrate the Virage AI chat widget on your WordPress site with advanced display rules. Once activated, go to **Settings > Virage AI Chat** to configure the widget.
- * Version: 1.2.0
+ * Version: 1.2.1
  * Author: Virage AI
  * Author URI: https://virage.ai/
  * License: GPLv2 or later
