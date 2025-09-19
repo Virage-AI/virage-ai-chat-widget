@@ -2,7 +2,7 @@
 /**
  * Plugin Name: Virage AI Chat Widget
  * Description: Easily integrate the Virage AI chat widget on your WordPress site with advanced display rules. Once activated, go to **Settings > Virage AI Chat** to configure the widget.
- * Version: 1.2.2
+ * Version: 1.3.0
  * Author: Virage AI
  * Author URI: https://virage.ai/
  * License: GPLv2 or later
@@ -467,3 +467,33 @@ function virage_ai_get_translated_string($string_value, $string_name, $context =
 
     return $string_value;
 }
+
+/**
+ * On activation, check for a pre-configured settings file and save its values.
+ * This runs only once when the plugin is activated for the first time.
+ */
+function virage_ai_activate_plugin() {
+    // 1. Check if options already exist. If so, do nothing to avoid overwriting user settings.
+    if (get_option('virage_ai_options')) {
+        return;
+    }
+
+    $config_file_path = __DIR__ . '/defaults.php';
+
+    // 2. Check if the configuration file exists.
+    if (file_exists($config_file_path)) {
+        // 3. Require the file to get the array of settings.
+        $default_options = require $config_file_path;
+
+        // 4. Ensure it's an array and not empty.
+        if (is_array($default_options) && !empty($default_options)) {
+            // Also, enable the widget by default for pre-configured installs.
+            $default_options['enabled'] = '1';
+
+            // 5. Save the settings to the WordPress database.
+            update_option('virage_ai_options', $default_options);
+        }
+    }
+}
+
+register_activation_hook(__FILE__, 'virage_ai_activate_plugin');
