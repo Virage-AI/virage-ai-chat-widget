@@ -3,7 +3,7 @@ Contributors: virage-ai
 Tags: chat, widget, ai, chatbot, whatsapp, customer support, sdk, virage
 Requires at least: 5.0
 Tested up to: 6.8
-Stable tag: 1.3.0
+Stable tag: 1.4.1
 Requires PHP: 7.4
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -13,16 +13,17 @@ Intégrez facilement le widget de chat Virage AI sur votre site WordPress avec d
 == Description ==
 
 Cette extension vous permet d'intégrer de manière transparente le widget de chat Virage AI dans votre site WordPress sans toucher à la moindre ligne de code.
-Installez simplement l'extension, saisissez vos identifiants uniques, et personnalisez l'apparence et le comportement directement depuis votre zone d'administration WordPress.
+Installez simplement l'extension et saisissez votre identifiant unique de canal (Channel UUID) pour activer le widget.
 
-Grâce à de puissantes règles d'affichage, vous pouvez contrôler précisément où le widget apparaît, en vous assurant qu'il soit visible sur votre page d'accueil, des pages spécifiques, des articles de blog, ou même des types de publication personnalisés comme des Produits ou des Portfolios.
+La configuration et l'apparence du widget sont désormais gérées directement depuis la plateforme Virage AI, rendant le widget autonome et facile à maintenir.
+Grâce à des règles d'affichage intégrées, vous pouvez contrôler précisément où le widget apparaît sur votre site.
 
 **Fonctionnalités Clés :**
 
 * **Installation Simple :** Une page de réglages dédiée sous **Réglages > Virage AI Chat**.
-* **Personnalisation Complète :** Contrôlez la couleur du bouton, l'icône, le texte, ainsi que l'avatar, le nom et le message d'accueil de la pop-up.
-* **Règles d'Affichage Puissantes :** Activez/désactivez le widget globalement et contrôlez la visibilité par type de page et types de publication personnalisés.
-* **Aucun Code Requis :** Copiez et collez simplement vos identifiants et configurez les réglages.
+* **Configuration Centralisée :** Gérez l'apparence et le comportement du widget depuis votre tableau de bord Virage AI.
+* **Règles d'Affichage :** Contrôlez la visibilité par type de page et types de publication personnalisés.
+* **Aucun Code Requis :** Copiez et collez simplement votre Channel UUID.
 
 == Installation ==
 
@@ -30,21 +31,21 @@ Grâce à de puissantes règles d'affichage, vous pouvez contrôler précisémen
 
 1.  Naviguez vers **Extensions > Ajouter** dans votre panneau d'administration WordPress.
 2.  Cliquez sur le bouton **Téléverser une extension** en haut de la page.
-3.  Téléversez le fichier `virage-ai-chat-widget.zip` (à récupérer à l'adresse suivante : https://github.com/Virage-AI/virage-ai-chat-widget/archive/refs/heads/main.zip).
+3.  Téléversez le fichier `virage-ai-chat-widget.zip`.
 4.  Cliquez sur **Installer maintenant** puis **Activer** l'extension.
 5.  Naviguez vers **Réglages > Virage AI Chat** pour configurer le widget.
 
 == Foire Aux Questions ==
 
-= Où puis-je trouver mes UUID d'Organisation et de Projet ? =
+= Où puis-je trouver mon Channel UUID ? =
 
-Si vous ne les avez pas déjà reçu par email, contactez virage par email (contact@virage.ai). Ils sont nécessaires pour connecter votre site web à votre projet de chat.
+Vous pouvez trouver votre Channel UUID dans votre tableau de bord Virage AI sous les paramètres du canal de chat.
 
 = Le widget de chat n'apparaît pas. Que dois-je vérifier ? =
 
 Veuillez vérifier les points suivants :
 1.  Allez dans **Réglages > Virage AI Chat**.
-2.  Assurez-vous d'avoir saisi les bons **UUID d'Organisation** et **UUID de Projet**.
-3.  Sous l'onglet **Règles d'affichage**, assurez-vous que la case principale **Activer le widget de chat** est cochée.
+2.  Assurez-vous d'avoir saisi le bon **Channel UUID**.
+3.  Assurez-vous que la case **Activer le widget de chat** est cochée.
 4.  Vérifiez que vous avez coché une règle de localisation qui correspond à la page que vous consultez.
-5.  Videz le cache de vos extensions de mise en cache.
+5.  Videz le cache de votre site si vous utilisez une extension de mise en cache.

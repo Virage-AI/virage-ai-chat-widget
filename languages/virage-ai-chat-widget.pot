@@ -1,14 +1,14 @@
-# Copyright (C) 2025 Virage AI
+# Copyright (C) 2026 Virage AI
 # This file is distributed under the same license as the Virage AI Chat Widget package.
 msgid ""
 msgstr ""
-"Project-Id-Version: Virage AI Chat Widget 1.2.0\n"
+"Project-Id-Version: Virage AI Chat Widget 1.4.1\n"
 "Report-Msgid-Bugs-To: https://github.com/Virage-AI/virage-ai-chat-widget\n"
-"POT-Creation-Date: 2025-09-02 21:37:00+02:00\n"
+"POT-Creation-Date: 2026-04-14 10:30:00+02:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2025-09-02 21:37:00+02:00\n"
+"PO-Revision-Date: 2026-04-14 10:30:00+02:00\n"
 "Last-Translator: Johann Fradj johann@virage.ai\n"
 "Language: \n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
@@ -20,7 +20,7 @@ msgstr ""
 msgid "Virage AI Chat"
 msgstr ""
 
-msgid "Global"
+msgid "Global Settings"
 msgstr ""
 
 msgid "Enable Chat Widget"
@@ -32,97 +32,7 @@ msgstr ""
 msgid "Widget Configuration"
 msgstr ""
 
-msgid "Organization UUID"
-msgstr ""
-
-msgid "Project UUID"
-msgstr ""
-
 msgid "Channel UUID"
-msgstr ""
-
-msgid "WhatsApp Redirect URL"
-msgstr ""
-
-msgid "Button Customization"
-msgstr ""
-
-msgid "Button Icon URL"
-msgstr ""
-
-msgid "Button Text"
-msgstr ""
-
-msgid "Button Text Color"
-msgstr ""
-
-msgid "Button Background Color"
-msgstr ""
-
-msgid "Button Size"
-msgstr ""
-
-msgid "Button Bottom Offset"
-msgstr ""
-
-msgid "Button Right Offset"
-msgstr ""
-
-msgid "Popup Customization"
-msgstr ""
-
-msgid "Popup Tabs"
-msgstr ""
-
-msgid "Popup Start Tab"
-msgstr ""
-
-msgid "Popup Header Background Color"
-msgstr ""
-
-msgid "Popup Avatar URL"
-msgstr ""
-
-msgid "Popup Avatar Name"
-msgstr ""
-
-msgid "Virage AI"
-msgstr ""
-
-msgid "Popup Width"
-msgstr ""
-
-msgid "Popup Height"
-msgstr ""
-
-msgid "Popup Bottom Offset"
-msgstr ""
-
-msgid "Popup Right Offset"
-msgstr ""
-
-msgid "WhatsApp Tab Customization"
-msgstr ""
-
-msgid "Popup WhatsApp Text"
-msgstr ""
-
-msgid "Scan this QR code to start<br/>the conversation on WhatsApp:"
-msgstr ""
-
-msgid "Popup WhatsApp CTA Text"
-msgstr ""
-
-msgid "Continue on desktop"
-msgstr ""
-
-msgid "Web Tab Customization"
-msgstr ""
-
-msgid "Popup Web Welcome Text"
-msgstr ""
-
-msgid "Hello!<br/>How can I help you?:"
 msgstr ""
 
 msgid "Display Rules"
