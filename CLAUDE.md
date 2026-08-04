@@ -12,9 +12,11 @@ Single-file WordPress plugin that injects the Virage chat-widget SDK on customer
 
 ## Distribution & releases
 
-- Updates ship through the vendored `plugin-update-checker` v5 pointed at **GitHub `Virage-AI/virage-ai-chat-widget`, branch `main`** (`virage-ai-chat-widget.php:30-35`) — every push to `main` is effectively a release to all installs; there is no tag gate.
-- To release: bump **both** the plugin header `Version:` and `readme.txt` `Stable tag:` (they must stay in lockstep or WP won't offer the update), then push to `main`.
-- Manual install: the GitHub `main` branch zip. No CI, no build step.
+- Updates ship through the vendored `plugin-update-checker` v5 pointed at **GitHub `Virage-AI/virage-ai-chat-widget`, branch `main`** (`virage-ai-chat-widget.php:30-35`).
+- ⚠ **A GitHub Release is the gate — pushing to `main` ships nothing.** Because the configured branch is `main`, PUC tries *latest release* → *highest version tag* → branch head, in that order (`plugin-update-checker/Puc/v5p6/Vcs/GitHubApi.php:358`). Releases have existed since 2025-08-06, so the branch strategy is never reached. Back-office downloads gate on the same thing — `WordpressPluginController` in back-office-server reads `releases/latest` — so one Release feeds both channels.
+- To release: bump **both** the plugin header `Version:` and `readme.txt` `Stable tag:` (they must stay in lockstep or WP won't offer the update), push to `main`, **then publish a GitHub Release**.
+- **Tag names must not carry a `v` prefix** (`1.4.2`, not `v1.4.2`). back-office-server downloads `archive/refs/tags/$tagName.zip` and unzips into `virage-ai-chat-widget-$tagName`, while GitHub strips a leading `v` from the archive's folder name — a `v`-prefixed tag breaks the back-office download. Every tag to date is unprefixed.
+- Manual install: the zip attached to the latest Release. No CI, no build step.
 
 ## Gotchas
 
