@@ -2,7 +2,7 @@
 /**
  * Plugin Name: Virage AI Chat Widget
  * Description: Easily integrate the Virage AI chat widget on your WordPress site with advanced display rules. Once activated, go to **Settings > Virage AI Chat** to configure the widget.
- * Version: 1.4.2
+ * Version: 1.4.3
  * Author: Virage AI
  * Author URI: https://virage.ai/
  * License: GPLv2 or later
@@ -221,7 +221,8 @@ function virage_ai_sanitize_options($input)
     }
 
     if (isset($input['channel_uuid'])) {
-        $sanitized_input['channel_uuid'] = sanitize_text_field(trim($input['channel_uuid']));
+        // A tampered form can post an array: trim() throws a TypeError on PHP 8, and WP 5.0's sanitize_text_field() stores "Array".
+        $sanitized_input['channel_uuid'] = is_string($input['channel_uuid']) ? sanitize_text_field($input['channel_uuid']) : '';
     }
 
     return $sanitized_input;
