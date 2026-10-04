@@ -26,6 +26,9 @@ msgstr "Chat Virage AI"
 msgid "Global"
 msgstr "Général"
 
+msgid "Global Settings"
+msgstr "Réglages généraux"
+
 msgid "Enable Chat Widget"
 msgstr "Activer le widget de chat"
 
